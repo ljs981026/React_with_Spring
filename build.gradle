@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.15'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'application'
+}
+
+group = 'com.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre11' // Microsoft SQL Server JDBC 드라이버
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+application {
+	mainClassName = 'com.demo.board.BoardApplication' // 여기에 실제 메인 클래스 이름을 입력하세요
+}
+
+// Spring Boot 기본 설정 추가
+springBoot {
+	mainClassName = 'com.demo.board.BoardApplication' // 여기에 실제 메인 클래스 이름을 입력하세요
+}
